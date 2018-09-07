@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/stylesheets/main.css" rel="stylesheet">
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/angular.min.js"></script>
+
+  <script src="/js/angular-animate.js"></script>
+  <script src="/js/angular-resource.js"></script>
+  <script src="/js/angular-route.js"></script>
+
+  <script src="component-one/component-one.module.js"></script>
+  <script src="component-one/component-one.component.js"></script>
+  <script src="component-two/component-two.module.js"></script>
+  <script src="component-two/component-two.component.js"></script>
+
+  <script src="login/login.module.js"></script>
+  <script src="login/login.component.js"></script>
+  <script src="recipe-list/recipe-list.module.js"></script>
+  <script src="recipe-list/recipe-list.component.js"></script>
+  
+  <script src="app.module.js"></script>
+  <script src="app.config.js"></script>
+
+</head>
+
+<body>
+  <div class="menu-bar">
+    <div class="align-left">
+        <p>Login</p>
+    </div>
+    <div class="align-right">
+        <p>+</p>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+
+
+    </div>
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+  
+</body>
+</html>
