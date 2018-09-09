@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="phonecatApp">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,33 +23,24 @@
   <script src="component-two/component-two.module.js"></script>
   <script src="component-two/component-two.component.js"></script>
 
+  <script src="menu-bar/menu-bar.module.js"></script>
+  <script src="menu-bar/menu-bar.component.js"></script>
   <script src="login/login.module.js"></script>
   <script src="login/login.component.js"></script>
   <script src="recipe-list/recipe-list.module.js"></script>
   <script src="recipe-list/recipe-list.component.js"></script>
-  
+  <script src="add-recipe/add-recipe.module.js"></script>
+  <script src="add-recipe/add-recipe.component.js"></script>
+
   <script src="app.module.js"></script>
   <script src="app.config.js"></script>
 
 </head>
 
 <body>
-  <div class="menu-bar">
-    <div class="align-left">
-        <p>Login</p>
-    </div>
-    <div class="align-right">
-        <p>+</p>
-    </div>
-    <div style="clear: both"></div>
+  <menu-bar></menu-bar>
+  <div class="container">
+    <div ng-view></div>
   </div>
-
-
-    </div>
-    <div class="view-container">
-      <div ng-view class="view-frame"></div>
-    </div>
-
-  
 </body>
 </html>

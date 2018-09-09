@@ -5,7 +5,9 @@ angular.
   module('login').
   component('login', {
     templateUrl: 'login/login.template.html',
-    controller: function loginController() {
-        this.data = "Login";
+    controller: ['$location', function loginController($location) {
+        this.submit = function() {
+          $location.path('/recipeList');
+        }
     }
-  });
+  ]});

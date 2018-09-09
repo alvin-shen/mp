@@ -1,0 +1,43 @@
+<form>
+    <div class="form-group">
+        <label for="recipeName">Recipe Name</label>
+        <input type="text" class="form-control" id="recipeName" placeholder="Recipe name">
+    </div>
+
+    <div class="row" ng-repeat="ingredient in $ctrl.ingredients">
+        <div class="form-group col-xs-3">
+            <label for="recipeIngredientQty-1" ng-show="$index == 0">Qty</label>
+            <input type="text" class="form-control" id="recipeIngredientQty-{{$index + 1}}" placeholder="Qty">
+        </div>
+        <div class="form-group col-xs-9">
+            <label for="recipeIngredient-1" ng-show="$index == 0">Ingredient</label>
+            <input type="text" class="form-control" id="recipeIngredient-{{$index + 1}}" placeholder="Ingredient {{$index + 1}}">
+        </div>
+
+
+        <!-- <div class="form-group" data-ng-repeat="choice in choices">
+            <label for="choice">Choices</label>
+            <button ng-show="showAddChoice(choice)" ng-click="addNewChoice()">Add Choice</button>
+            <button ng-click="removeNewChoice()">Remove Choice</button>
+            <input type="text" ng-modal="{{choice.name}}" name="" placeholder="Enter a restaurant name" value="{{choice.id}}">
+        </div> -->
+
+
+    </div>
+    <button type="" class="pull-right btn btn-primary" ng-click="$ctrl.addIngredient()">+</button>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="recipeInstructions">Instructions</label>
+        <textarea class="form-control" id="recipeInstructions" rows="3"></textarea>
+    </div>
+</form>

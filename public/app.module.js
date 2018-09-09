@@ -6,6 +6,8 @@ angular.module('phonecatApp', [
   'ngRoute',
   'componentOne',
   'componentTwo',
+  'addRecipe',
   'login',
+  'menuBar',
   'recipeList'
 ]);
