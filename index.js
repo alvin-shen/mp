@@ -7,9 +7,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-var mongodb = require('mongodb');
-var uri = 'mongodb://heroku_fs84g4kt:v3m887lst69f283idvcpjh32am@ds141082.mlab.com:41082/heroku_fs84g4kt';
-
+var mongodb = require('mongodb').MongoClient;
+//var uri = 'mongodb://heroku_fs84g4kt:v3m887lst69f283idvcpjh32am@ds141082.mlab.com:41082/heroku_fs84g4kt';
+var uri = 'mongodb://MP_DB_USER:MP_DB_USER_123@ds149682.mlab.com:49682/meal-planner'
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -30,28 +30,34 @@ app.use('/css', express.static(__dirname + '/bower_components/bootstrap/dist/css
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
+app.get('/', function (request, response) {
     response.render('pages/index');
 });
 
 
-app.get('/service/:urlParam1', function(request, response) {
+app.get('/service/:urlParam1', function (request, response) {
     // Stubbed response
     response.json('Echo GET /service/urlParam1');
 
 });
 
-app.post('/service/:urlParam1', function(request, response) {
-    var urlParam1 = request.params.urlParam1;
-    var data = request.body;
-
-    // Stubbed response
-    response.json('Echo POST /service/urlParam1');
-
+app.listen(app.get('port'), function () {
+    console.log('Node app is running on port', app.get('port'));
 });
 
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+
+app.post('/service/recipe', function (request, response) {
+    var data = request.body;
+
+    mongodb.connect(uri, function (err, db) {
+        if (err) throw err;
+        db.collection("Recipe").insert(data, function (err, result) {
+            if (err) throw err;
+            console.log("Inserted new recipe");
+            db.close();
+            response.json({"status": "success"});
+        });
+    });
 });
 
 
