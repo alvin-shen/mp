@@ -18,6 +18,9 @@ angular.
         when('/addRecipe', {
           template: '<add-recipe></add-recipe>'
         }).
+        when('/recipe/:recipeId', {
+          template: '<view-recipe></view-recipe>'
+        }).
         when('/myComponent/:urlParam1', {
           template: '<component-two></component-two>'
         }).

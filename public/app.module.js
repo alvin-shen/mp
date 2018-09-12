@@ -7,7 +7,9 @@ angular.module('phonecatApp', [
   'componentOne',
   'componentTwo',
   'addRecipe',
+  'applicationContext',
   'login',
   'menuBar',
-  'recipeList'
+  'recipeList',
+  'viewRecipe'
 ]);

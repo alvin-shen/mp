@@ -34,17 +34,9 @@ app.get('/', function (request, response) {
     response.render('pages/index');
 });
 
-
-app.get('/service/:urlParam1', function (request, response) {
-    // Stubbed response
-    response.json('Echo GET /service/urlParam1');
-
-});
-
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
 });
-
 
 app.post('/service/recipe', function (request, response) {
     var data = request.body;
@@ -60,4 +52,17 @@ app.post('/service/recipe', function (request, response) {
     });
 });
 
+app.get('/service/recipes', function (request, response) {
+    var data = request.body;
+
+    mongodb.connect(uri, function (err, db) {
+        if (err) throw err;
+        db.collection("Recipe").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log("Retrieved recipes: " , result);
+            db.close();
+            response.json(result);
+        });
+    });
+});
 
